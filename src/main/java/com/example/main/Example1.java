@@ -7,15 +7,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Example1 {
 
     public static void main(String[] args) {
-         //noraml exeuation without DI and Spring
-        Vehicle vehicle = new Vehicle();
-        vehicle.setName("Honda City");
-        System.out.println("Non Spring execution:" + vehicle.getName());
 
-
-        //Sring Ioc Continer exeution
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
-        Vehicle veh = context.getBean(Vehicle.class);
-        System.out.println("Spring Context Execution:" + veh.getName());
+
+        Vehicle veh1 = context.getBean("audiVehicle",Vehicle.class);
+        System.out.println("Spring Context Execution:" + veh1.getName());
+
+        Vehicle veh2 = context.getBean("JeepVehicle",Vehicle.class);
+        System.out.println("Spring Context Execution:" + veh2.getName());
+
+        Vehicle veh3 = context.getBean("ferrariVehicle",Vehicle.class);
+        System.out.println("Spring Context Execution:" + veh3.getName());
     }
 }
