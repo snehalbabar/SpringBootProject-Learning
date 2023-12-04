@@ -10,13 +10,12 @@ public class Example1 {
 
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
-        Vehicle veh1 = context.getBean("audiVehicle",Vehicle.class);
+        Vehicle veh1 = context.getBean(Vehicle.class);
         System.out.println("Spring Context Execution:" + veh1.getName());
+        veh1.printHello();
+        //close all the application context
+        context.close();
 
-        Vehicle veh2 = context.getBean("JeepVehicle",Vehicle.class);
-        System.out.println("Spring Context Execution:" + veh2.getName());
 
-        Vehicle veh3 = context.getBean("ferrariVehicle",Vehicle.class);
-        System.out.println("Spring Context Execution:" + veh3.getName());
     }
 }
